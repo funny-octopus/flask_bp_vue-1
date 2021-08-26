@@ -1,0 +1,8 @@
+/.gitignore
+/.env
+/app.db
+/migrations/
+/venv/
+/.idea/
+__pycache__/
+
