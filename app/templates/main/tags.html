@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block customhead %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock customhead %}
+
+
+{% block content %}
+<div id="appp">
+    <p>[[ tags ]]</p>
+
+    <ul>
+        <li v-for="(item, value) in tags">
+                <span>[[ value ]]</span>
+                <input type="text" :id="value"/>
+                <button @click="add_element(value)">+</button>
+                <br/>
+                <ul>
+                    <li v-for="i in item">
+                        <span>[[ i ]]</span>
+                        <button @click="remove_element(value, item.indexOf(i))">-</button>
+                    </li>
+                </ul>
+        </li>
+    </ul>
+    <button v-show="changetags_flag" @click="save_tags">Сохранить</button>
+</div>
+
+<script src="{{ url_for('static', filename='main/app.js') }}"></script>
+{% endblock content %}
